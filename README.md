@@ -2,7 +2,7 @@
 
 ![Preview image of the application](doc/preview.png)
 
-A beautiful, fast Cloudflare Worker that displays your IP address, geolocation, and connection information with a well-designed API. Perfect for checking your IP, debugging network issues, or integrating IP detection into your scripts.
+A fast and cool Cloudflare Worker that displays your IP address, geolocation, and connection infos via well-designed APIs. Perfect for checking your IP, debugging network issues, or integrating IP detection into your scripts.
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jim60105/worker-your-ip)
 
