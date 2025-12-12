@@ -193,23 +193,6 @@ This worker leverages Cloudflare's edge network to provide:
 - `CF-Connecting-IP` - Client IP address
 - `X-Forwarded-For` - Original visitor IP
 
-## 🔧 Configuration
-
-The worker is configured via `wrangler.jsonc`:
-
-```jsonc
-{
-  "name": "worker-your-ip",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-12-12",
-  "compatibility_flags": ["nodejs_compat"],
-  "observability": {
-    "enabled": true,
-    "head_sampling_rate": 1
-  }
-}
-```
-
 ## 🧪 Testing
 
 Tests are written with Vitest and the Cloudflare Workers testing utilities:
