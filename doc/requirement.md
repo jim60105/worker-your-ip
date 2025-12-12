@@ -21,7 +21,7 @@ Feature: Main Webpage
     And the user should see their geolocation information
     And the user should see additional connection details
     And the page should display documentation for API endpoints
-    And the page should have a footer with copyright "© 2010 Jim Chen (Jim@ChenJ.im)"
+    And the page should have a footer with copyright "© 2025 Jim Chen (Jim@ChenJ.im)"
     And the page should have a link to the GitHub repository
 
   Scenario: User views API documentation on the webpage

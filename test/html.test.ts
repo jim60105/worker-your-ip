@@ -24,7 +24,7 @@ describe("HTML Page", () => {
         headers: { "CF-Connecting-IP": "203.0.113.1" },
       });
       const html = await response.text();
-      expect(html).toContain("© 2010");
+      expect(html).toContain("© 2025");
       expect(html).toContain("Jim Chen");
     });
 
