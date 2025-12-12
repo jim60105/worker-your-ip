@@ -52,6 +52,7 @@ export function generateHTML(request: Request): string {
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: "Anta", system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { scroll-padding-top: 112.5px; }
     .copy-btn:active { transform: scale(0.98); }
   </style>
 </head>
@@ -181,7 +182,7 @@ export function generateHTML(request: Request): string {
         </section>
 
         <!-- Info Cards -->
-        <section id="details" class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <section class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <!-- Location Card -->
           <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 border border-emerald-500/5 p-5">
             <div class="flex items-center gap-3 mb-4">
@@ -256,7 +257,7 @@ export function generateHTML(request: Request): string {
         </section>
 
         <!-- Full Details Table -->
-        <section class="mt-6 rounded-2xl bg-white/5 ring-1 ring-white/10 border border-emerald-500/5 p-6">
+        <section id="details" class="mt-6 rounded-2xl bg-white/5 ring-1 ring-white/10 border border-emerald-500/5 p-6">
           <div class="flex items-center justify-between mb-5">
             <div class="text-sm font-medium text-emerald-200">All Connection Details</div>
             <div class="text-xs text-slate-500">Request: ${escapeHtml(hostname)}</div>
@@ -325,7 +326,7 @@ export function generateHTML(request: Request): string {
         </section>
 
         <!-- Footer -->
-        <footer class="mt-8 text-center text-slate-500 py-8 border-t border-emerald-500/10">
+        <footer class="my-8 pt-8 text-center text-slate-500 border-t border-emerald-500/10">
           <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
             <a
               href="https://github.com/jim60105/worker-your-ip"
