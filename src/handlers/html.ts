@@ -165,7 +165,7 @@ export function generateHTML(request: Request): string {
         </div>
       </header>
 
-      <div class="px-5 md:px-8 py-7">
+      <div class="px-5 md:px-8 pt-7">
         <!-- Primary IP Display -->
         <section id="ip" class="rounded-2xl bg-white/5 ring-1 ring-white/10 border border-emerald-500/5 p-6 md:p-8">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
