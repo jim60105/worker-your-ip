@@ -1,0 +1,30 @@
+{
+  "name": "worker-your-ip",
+  "version": "1.0.0",
+  "description": "A Cloudflare Worker that displays your IP address, geolocation, and connection information",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "ip",
+    "geolocation",
+    "what-is-my-ip"
+  ],
+  "author": "Jim Chen <Jim@ChenJ.im>",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.0",
+    "@cloudflare/workers-types": "^4.20250206.0",
+    "typescript": "^5.7.3",
+    "vitest": "~3.0.0",
+    "wrangler": "^4.0.0"
+  }
+}
