@@ -2,9 +2,12 @@
   "name": "worker-your-ip",
   "main": "src/index.ts",
   "compatibility_date": "2025-12-12",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
+  },
+  "placement": {
+    "mode": "smart"
   }
 }
