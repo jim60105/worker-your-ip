@@ -55,5 +55,47 @@ describe("HTML Page", () => {
       const html = await response.text();
       expect(html).toContain("tailwindcss");
     });
+
+    it("should not include port in hostname for https on port 443", async () => {
+      const response = await SELF.fetch("https://example.com/", {
+        headers: { "CF-Connecting-IP": "203.0.113.1" },
+      });
+      const html = await response.text();
+      // Should show just hostname without port
+      expect(html).toContain("Request: example.com");
+      // curl commands should use https
+      expect(html).toContain("curl https://example.com/ip");
+    });
+
+    it("should include port in hostname for https on non-443 port", async () => {
+      const response = await SELF.fetch("https://example.com:8443/", {
+        headers: { "CF-Connecting-IP": "203.0.113.1" },
+      });
+      const html = await response.text();
+      // Should show hostname with port
+      expect(html).toContain("Request: example.com:8443");
+      // curl commands should use https with port
+      expect(html).toContain("curl https://example.com:8443/ip");
+    });
+
+    it("should include port in hostname for http", async () => {
+      const response = await SELF.fetch("http://example.com:8080/", {
+        headers: { "CF-Connecting-IP": "203.0.113.1" },
+      });
+      const html = await response.text();
+      // Should show hostname with port
+      expect(html).toContain("Request: example.com:8080");
+      // curl commands should use http with port
+      expect(html).toContain("curl http://example.com:8080/ip");
+    });
+
+    it("should use http protocol for port 80", async () => {
+      const response = await SELF.fetch("http://example.com:80/", {
+        headers: { "CF-Connecting-IP": "203.0.113.1" },
+      });
+      const html = await response.text();
+      // curl commands should use http
+      expect(html).toContain("curl http://example.com/ip");
+    });
   });
 });

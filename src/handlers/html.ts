@@ -31,9 +31,32 @@ function escapeHtml(text: string | null | undefined): string {
     .replace(/'/g, "&#039;");
 }
 
+function getHostnameWithPort(request: Request): string {
+  const url = new URL(request.url);
+  const protocol = url.protocol; // 'http:' or 'https:'
+  const hostname = url.hostname;
+  const port = url.port;
+
+  // If port is explicitly set
+  if (port) {
+    const portNum = parseInt(port, 10);
+    // For https, include port if not 443
+    if (protocol === 'https:' && portNum !== 443) {
+      return `${hostname}:${port}`;
+    }
+    // For http, always include port
+    if (protocol === 'http:') {
+      return `${hostname}:${port}`;
+    }
+  }
+
+  // Default ports or no port specified
+  return hostname;
+}
+
 export function generateHTML(request: Request): string {
   const info = getAllClientInfo(request) as unknown as ClientInfo;
-  const hostname = new URL(request.url).hostname;
+  const hostname = getHostnameWithPort(request);
 
   const locationPrimary =
     [info.city, info.region, info.country].filter(Boolean).join(", ") || "N/A";
@@ -306,22 +329,22 @@ export function generateHTML(request: Request): string {
           </div>
 
           <div class="grid gap-3">
-            ${generateEndpointDoc(hostname, "/ip", "Your IP address (IPv4 or IPv6)")}
-            ${generateEndpointDoc(hostname, "/ipv4", "Your IPv4 address (returns 400 if unavailable)")}
-            ${generateEndpointDoc(hostname, "/ipv6", "Your IPv6 address (returns 400 if unavailable)")}
-            ${generateEndpointDoc(hostname, "/json", "All information as JSON")}
-            ${generateEndpointDoc(hostname, "/country", "Your country code (ISO 3166-1)")}
-            ${generateEndpointDoc(hostname, "/city", "Your city name")}
-            ${generateEndpointDoc(hostname, "/region", "Your region/state name")}
-            ${generateEndpointDoc(hostname, "/timezone", "Your timezone")}
-            ${generateEndpointDoc(hostname, "/coordinates", "Your latitude,longitude")}
-            ${generateEndpointDoc(hostname, "/continent", "Your continent code")}
-            ${generateEndpointDoc(hostname, "/asn", "Your ASN number")}
-            ${generateEndpointDoc(hostname, "/org", "Your organization/ISP name")}
-            ${generateEndpointDoc(hostname, "/colo", "Cloudflare data center code")}
-            ${generateEndpointDoc(hostname, "/tls", "TLS version")}
-            ${generateEndpointDoc(hostname, "/protocol", "HTTP protocol version")}
-            ${generateEndpointDoc(hostname, "/headers", "Your request headers as JSON")}
+            ${generateEndpointDoc(request, "/ip", "Your IP address (IPv4 or IPv6)")}
+            ${generateEndpointDoc(request, "/ipv4", "Your IPv4 address (returns 400 if unavailable)")}
+            ${generateEndpointDoc(request, "/ipv6", "Your IPv6 address (returns 400 if unavailable)")}
+            ${generateEndpointDoc(request, "/json", "All information as JSON")}
+            ${generateEndpointDoc(request, "/country", "Your country code (ISO 3166-1)")}
+            ${generateEndpointDoc(request, "/city", "Your city name")}
+            ${generateEndpointDoc(request, "/region", "Your region/state name")}
+            ${generateEndpointDoc(request, "/timezone", "Your timezone")}
+            ${generateEndpointDoc(request, "/coordinates", "Your latitude,longitude")}
+            ${generateEndpointDoc(request, "/continent", "Your continent code")}
+            ${generateEndpointDoc(request, "/asn", "Your ASN number")}
+            ${generateEndpointDoc(request, "/org", "Your organization/ISP name")}
+            ${generateEndpointDoc(request, "/colo", "Cloudflare data center code")}
+            ${generateEndpointDoc(request, "/tls", "TLS version")}
+            ${generateEndpointDoc(request, "/protocol", "HTTP protocol version")}
+            ${generateEndpointDoc(request, "/headers", "Your request headers as JSON")}
           </div>
         </section>
 
@@ -372,11 +395,14 @@ export function generateHTML(request: Request): string {
 }
 
 function generateEndpointDoc(
-  hostname: string,
+  request: Request,
   path: string,
   description: string
 ): string {
-  const curlCommand = `curl https://${hostname}${path}`;
+  const url = new URL(request.url);
+  const protocol = url.protocol.replace(':', ''); // 'http' or 'https'
+  const hostnameWithPort = getHostnameWithPort(request);
+  const curlCommand = `curl ${protocol}://${hostnameWithPort}${path}`;
   return `
     <div class="rounded-xl bg-black/20 ring-1 ring-white/5 border border-emerald-500/5 px-4 py-4">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
