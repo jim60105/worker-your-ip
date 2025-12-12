@@ -224,14 +224,23 @@ npm run test:watch
 
 ## 📄 License
 
-GPL-3.0-or-later License - see [LICENSE](LICENSE) for details.
+<img src="https://github.com/user-attachments/assets/74aa8c66-d4ba-4ff6-9057-d11cea62d10e" alt="gplv3" width="300" />
 
-## 👤 Author
+[GNU GENERAL PUBLIC LICENSE Version 3](LICENSE)
 
-Copyright © 2010 [Jim Chen](mailto:Jim@ChenJ.im)
+Copyright (C) 2025 Jim Chen <Jim@ChenJ.im>.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
 
 ---
 
-[⭐ Star this repo](https://github.com/jim60105/worker-your-ip) •
-[🐛 Report Bug](https://github.com/jim60105/worker-your-ip/issues) •
-[💡 Request Feature](https://github.com/jim60105/worker-your-ip/issues)
+> [!TIP]  
+> Understanding this license:
+>
+> - You can deploy and use this project as-is, since the webpage includes a link to this GitHub project.
+> - If you modify this project, you ***MUST*** make your modified source code available to users under the same license.
+> - If you use this project as a dependent API service accessed from another project of yours, you may keep your project's license since we use GPLv3 (not AGPLv3).

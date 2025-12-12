@@ -366,7 +366,7 @@ export function generateHTML(request: Request): string {
             <span>Powered by Cloudflare Workers</span>
           </div>
           <p class="text-sm">
-            Copyright © 2010 <a href="mailto:Jim@ChenJ.im" class="text-emerald-300 hover:text-emerald-200 transition-colors">Jim Chen</a>
+            Copyright © 2025 <a href="mailto:Jim@ChenJ.im" class="text-emerald-300 hover:text-emerald-200 transition-colors">Jim Chen</a>
           </p>
         </footer>
       </div>
