@@ -19,6 +19,10 @@ A fast and cool Cloudflare Worker that displays your IP address, geolocation, an
 
 ## 🚀 Deploy Your Own
 
+> [!TIP]  
+> ⭐ **Star the original repository** to stay updated with new features and improvements!  
+> By starring [jim60105/worker-your-ip](https://github.com/jim60105/worker-your-ip), you'll receive notifications about updates and can easily find this project later.
+
 Click the button above to deploy your own instance, or follow the manual steps below.
 
 ### Manual Deployment
