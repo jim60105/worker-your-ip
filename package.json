@@ -21,10 +21,10 @@
   "author": "Jim Chen <Jim@ChenJ.im>",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.0",
+    "@cloudflare/vitest-pool-workers": "^0.12.5",
     "@cloudflare/workers-types": "^4.20250206.0",
     "typescript": "^5.7.3",
     "vitest": "~3.0.0",
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.59.3"
   }
 }
